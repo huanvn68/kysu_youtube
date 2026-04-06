@@ -1,5 +1,44 @@
 {
   "permissions": {
-    "allow": []
+    "allow": [
+      "Bash(git commit:*)",
+      "WebFetch(domain:wesuccess.vn)",
+      "Bash(Get-Date -UFormat \"%y%m%d\")",
+      "Bash(bash:*)",
+      "Bash(/tmp/final_audit.sh:*)",
+      "Bash(__NEW_LINE_2d2c5702806f9fee__ bash:*)",
+      "Bash(powershell.exe -Command \"Start-Process msiexec.exe -ArgumentList ''/i'', ''C:\\\\Users\\\\Admin\\\\Downloads\\\\node-installer.msi'', ''/quiet'', ''/norestart'', ''ADDLOCAL=ALL'' -Wait; Write-Host ''Installed''\")",
+      "Bash(powershell.exe -Command \"& ''C:\\\\Program Files\\\\nodejs\\\\npm.cmd'' install -g vercel; Write-Host ''Vercel installed''\")",
+      "Bash(powershell.exe -Command \"Get-ChildItem ''C:\\\\Program Files\\\\nodejs\\\\'' 2>&1 | Select-Object -First 10\")",
+      "Bash(powershell.exe -Command \"Get-ChildItem ''C:\\\\Program Files\\\\'' | Where-Object {$_Name -like ''*node*'' -or $_Name -like ''*Node*''}\")",
+      "Bash(cmd.exe /c \"dir \"\"C:\\\\Program Files\\\\nodejs\\\\\"\" 2>&1\")",
+      "Bash(cmd.exe /c \"where node 2>&1\")",
+      "Read(//c//**)",
+      "Read(//c/ProgramData/**)",
+      "Read(//c/Users/Admin/**)",
+      "Bash(/c/Users/Admin/AppData/Local/ms-playwright-go/1.50.1/node.exe --version)",
+      "Bash(/c/Users/Admin/AppData/Local/ms-playwright-go/1.50.1/node.exe -e \"const { execSync } = require\\(''''child_process''''\\); console.log\\(execSync\\(''''npm --version''''\\).toString\\(\\)\\)\")",
+      "Bash(find /c/Users/Admin -name *.json -path */vercel/*)",
+      "mcp__ffddb84a-2bb0-4f7a-980c-1af837f0a057__list_teams",
+      "mcp__ffddb84a-2bb0-4f7a-980c-1af837f0a057__list_projects",
+      "Bash(powershell.exe -NoProfile -Command \"Get-Command node -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source; Get-Command npm -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\(''''mcpServers'''',{}\\), indent=2\\)\\)\")",
+      "Bash(find /c/Users/Admin/AppData/Roaming/Claude -name *.json)",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\(''/c/Users/Admin/AppData/Roaming/Claude/claude_desktop_config.json''\\)\\); mcp=d.get\\(''mcpServers'',{}\\); [print\\(k, json.dumps\\(v\\)[:200]\\) for k,v in mcp.items\\(\\)]\")",
+      "Bash(export PATH=\"$PATH:/c/Program Files/nodejs:/c/Users/Admin/AppData/Roaming/npm\")",
+      "Bash(mkdir -p \"/tmp/ky-su-sales-page\")",
+      "Bash(cp \"D:/15. ENTRY FACELESS YOUTUBE/CODE/AI Agent Business Kit/AI Agent Business Kit/.claude/worktrees/exciting-gagarin/ky-su-youtube-sales-page.html\" \"/tmp/ky-su-sales-page/index.html\")",
+      "Read(//tmp/**)",
+      "Bash(vercel deploy:*)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/nodejs:/c/Users/Admin/AppData/Roaming/npm\" cp \"D:/15. ENTRY FACELESS YOUTUBE/CODE/AI Agent Business Kit/AI Agent Business Kit/.claude/worktrees/exciting-gagarin/ky-su-youtube-sales-page.html\" \"/tmp/ky-su-sales-page/index.html\" cd \"/tmp/ky-su-sales-page\" vercel deploy --prod --yes --scope youtube-faceless)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/nodejs:/c/Users/Admin/AppData/Roaming/npm\" cd \"/tmp/ky-su-sales-page\" vercel deploy --prod --yes --scope youtube-faceless)",
+      "Bash(curl -s -w \"\\\\nHTTP:%{http_code}\" -X POST \"https://ky-su-sales-page.vercel.app/api/sepay-webhook\" -H \"Content-Type: application/json\" -d '{\"\"event\"\":\"\"payment.success\"\",\"\"order_id\"\":\"\"TEST-001\"\",\"\"amount\"\":8868000,\"\"status\"\":\"\"completed\"\"}')",
+      "mcp__ffddb84a-2bb0-4f7a-980c-1af837f0a057__get_deployment_build_logs",
+      "Bash(export PATH=\"$PATH:/c/Program Files/nodejs:/c/Users/Admin/AppData/Roaming/npm\" cd \"/tmp/ky-su-v2\" vercel deploy --prod --yes --scope youtube-faceless)",
+      "mcp__ffddb84a-2bb0-4f7a-980c-1af837f0a057__get_runtime_logs",
+      "Bash(curl -s -X POST \"https://ky-su-webhook.vercel.app/api/sepay-webhook\" -H \"Content-Type: application/json\" -d '{:*)",
+      "Bash(vercel --prod --yes)",
+      "Bash(curl -s -X POST https://ky-su-webhook.vercel.app/api/capture-lead -H \"Content-Type: application/json\" -d '{\"\"\"\"name\"\"\"\":\"\"\"\"Test Anh Huan\"\"\"\",\"\"\"\"email\"\"\"\":\"\"\"\"test@goda.vn\"\"\"\",\"\"\"\"phone\"\"\"\":\"\"\"\"0889697888\"\"\"\",\"\"\"\"plan\"\"\"\":\"\"\"\"full\"\"\"\"}')"
+    ]
   }
 }

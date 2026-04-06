@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kỹ Sư YouTube — Thu nhập thụ động cho người đi làm | Huan.academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#03070F;
+  --bg2:#060D1A;
+  --bg3:#0A1525;
+  --card:#0D1C30;
+  --border:#1A3050;
+  --text:#E8F4FF;
+  --text2:#8AAEC8;
+  --text3:#4A6A85;
+  --accent:#0EA5E9;
+  --accent2:#38BDF8;
+  --accent3:#7DD3FC;
+  --accent-glow:rgba(14,165,233,0.35);
+  --coral:#FF6B4A;
+  --coral-light:rgba(255,107,74,0.12);
+  --teal:#00E5B4;
+  --teal-light:rgba(0,229,180,0.12);
+  --gold:#FFB800;
+  --gold-light:rgba(255,184,0,0.12);
+  --pink:#F472B6;
+  --font:'Be Vietnam Pro',sans-serif;
+  --max:780px;
+  --radius:14px;
+  --radius-lg:22px;
+  --radius-xl:32px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{max-width:var(--max);margin:0 auto;padding:0 20px}
+.section{padding:80px 0}
+.section-sm{padding:56px 0}
+
+/* NOISE OVERLAY */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.5}
+
+/* TYPOGRAPHY */
+.sec-label{display:inline-block;padding:5px 14px;border-radius:50px;background:rgba(14,165,233,0.12);border:1px solid rgba(14,165,233,0.3);color:var(--accent3);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.sec-title{font-size:clamp(26px,4vw,38px);font-weight:800;line-height:1.25;margin-bottom:14px;letter-spacing:-.5px}
+.sec-sub{font-size:16px;color:var(--text2);line-height:1.75;margin-bottom:32px}
+.gradient-text{background:linear-gradient(135deg,#E8F4FF 0%,var(--accent2) 60%,var(--accent3) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.accent-text{color:var(--accent2)}
+
+/* ===== COUNTDOWN BAR ===== */
+.cd-bar{
+  background:linear-gradient(90deg,#FF4B8A 0%,var(--coral) 100%);
+  color:#fff;text-align:center;padding:11px 20px;font-size:13.5px;font-weight:500;
+  position:relative;z-index:200;
+}
+.cd-bar strong{font-weight:700}
+.cd-nums{display:inline-flex;gap:5px;margin:0 8px;vertical-align:middle}
+.cd-box{
+  background:rgba(255,255,255,0.25);padding:2px 9px;border-radius:6px;
+  font-weight:700;min-width:32px;text-align:center;font-size:15px;
+  backdrop-filter:blur(4px);
+}
+.cd-sep{opacity:.7;font-weight:300}
+
+/* ===== HERO ===== */
+.hero{
+  padding:80px 0 72px;text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(14,165,233,0.22) 0%,transparent 70%);
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(14,165,233,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,0.07) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 80%);
+}
+.hero-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(14,165,233,0.2) 0%,transparent 65%);pointer-events:none;z-index:0}
+.hero .container{position:relative;z-index:1}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 18px;border-radius:50px;
+  background:rgba(14,165,233,0.12);border:1px solid rgba(14,165,233,0.35);
+  color:var(--accent3);font-size:12.5px;font-weight:600;letter-spacing:.8px;
+  margin-bottom:24px;
+}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 8px var(--accent2);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(16px,3vw,20px);font-weight:500;color:var(--text2);letter-spacing:.3px;margin-bottom:6px}
+.hero-name{
+  font-size:clamp(42px,8vw,72px);font-weight:900;line-height:1.0;
+  background:linear-gradient(135deg,#E8F4FF 10%,var(--accent2) 55%,var(--accent3) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-2px;margin-bottom:20px;
+}
+.hero-sub{font-size:clamp(15px,2.5vw,18px);color:var(--text2);max-width:580px;margin:0 auto 36px;line-height:1.75}
+
+/* VSL */
+.vsl-wrap{max-width:620px;margin:0 auto 36px;position:relative}
+.vsl{
+  border-radius:var(--radius-lg);overflow:hidden;background:#000;
+  aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
+  position:relative;cursor:pointer;
+  border:1px solid rgba(14,165,233,0.4);
+  box-shadow:0 0 60px rgba(14,165,233,0.2),0 20px 60px rgba(0,0,0,.5);
+}
+.vsl-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(108,79,240,0.3) 0%,rgba(0,0,0,0.5) 100%)}
+.vsl-play{
+  width:76px;height:76px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 30px rgba(14,165,233,0.6);
+  transition:transform .25s,box-shadow .25s;position:relative;z-index:1
+}
+.vsl:hover .vsl-play{transform:scale(1.08);box-shadow:0 0 50px rgba(14,165,233,0.8)}
+.vsl-play::after{content:'';border-style:solid;border-width:14px 0 14px 24px;border-color:transparent transparent transparent #fff;margin-left:5px}
+.vsl-txt{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;font-size:13px;font-weight:500;z-index:1;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+
+/* STATS */
+.hero-stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.stat{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px 22px;text-align:center;min-width:130px;
+  transition:border-color .2s,transform .2s;
+}
+.stat:hover{border-color:rgba(14,165,233,0.5);transform:translateY(-2px)}
+.stat b{font-size:22px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.stat small{font-size:11.5px;color:var(--text3)}
+
+/* CTA */
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:17px 40px;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);
+  color:#fff;font-size:17px;font-weight:700;border-radius:var(--radius);
+  border:none;cursor:pointer;
+  box-shadow:0 8px 32px rgba(14,165,233,0.45);
+  transition:all .25s;letter-spacing:.3px;
+}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(14,165,233,0.6)}
+.cta-btn .arrow{transition:transform .2s}
+.cta-btn:hover .arrow{transform:translateX(4px)}
+.cta-sub{display:block;font-size:13px;color:var(--text3);margin-top:10px}
+.cta-zalo{
+  display:inline-flex;align-items:center;gap:7px;margin-top:14px;
+  padding:11px 24px;border:1px solid var(--border);border-radius:var(--radius);
+  font-size:14px;font-weight:500;color:var(--text2);background:var(--card);
+  cursor:pointer;transition:all .15s;
+}
+.cta-zalo:hover{border-color:var(--accent);color:var(--accent2);background:rgba(14,165,233,0.1)}
+.cta-g{text-align:center}
+
+/* ===== PAIN SECTION ===== */
+.pain{background:var(--bg2);border-top:1px solid var(--border)}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:580px){.pain-grid{grid-template-columns:1fr}}
+.pain-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:22px;
+  transition:border-color .2s,transform .2s;
+  position:relative;overflow:hidden;
+}
+.pain-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+}
+.pain-card:hover{border-color:rgba(14,165,233,0.4);transform:translateY(-2px)}
+.pain-card .pain-icon{font-size:28px;margin-bottom:12px}
+.pain-card h3{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4}
+.pain-card p{font-size:13.5px;color:var(--text2);line-height:1.7}
+
+/* ===== STORY ===== */
+.story{background:var(--bg)}
+.story-box{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-xl);
+  padding:40px;position:relative;overflow:hidden;
+}
+.story-box::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,0.2) 0%,transparent 70%);
+  pointer-events:none;
+}
+.story-quote{
+  font-size:clamp(19px,3vw,26px);font-weight:800;
+  background:linear-gradient(135deg,var(--coral) 0%,var(--pink) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.35;margin-bottom:28px;text-align:center;
+}
+.story-img{
+  margin:24px auto;max-width:260px;border-radius:var(--radius-lg);
+  background:var(--bg3);aspect-ratio:3/4;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:var(--text3);text-align:center;
+  border:1px solid var(--border);
+}
+.story-body{font-size:15px;color:var(--text2);line-height:1.8}
+.story-body strong{color:var(--text);font-weight:600}
+.story-highlight{
+  background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.25);
+  border-radius:var(--radius);padding:20px 24px;margin-top:24px;
+  text-align:center;font-size:16px;font-weight:600;
+  color:var(--accent3);line-height:1.6;
+}
+.mt-12{margin-top:12px}
+
+/* ===== SOLUTION ===== */
+.sol-grid{display:flex;flex-direction:column;gap:14px}
+.sol-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:24px;
+  transition:border-color .2s,transform .2s;
+}
+.sol-card:hover{border-color:rgba(14,165,233,0.5);transform:translateX(4px)}
+.sol-top{display:flex;gap:16px;align-items:flex-start}
+.sol-num{
+  width:48px;height:48px;border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:800;flex-shrink:0;
+  font-style:italic;
+}
+.sol-num-1{background:rgba(14,165,233,0.18);color:var(--accent3)}
+.sol-num-2{background:rgba(0,212,161,0.15);color:var(--teal)}
+.sol-num-3{background:rgba(255,184,0,0.15);color:var(--gold)}
+.sol-num-4{background:rgba(255,107,74,0.15);color:var(--coral)}
+.sol-card h3{font-size:15.5px;font-weight:700;color:var(--text);margin-bottom:5px}
+.sol-card p{font-size:13.5px;color:var(--text2);line-height:1.65}
+.sol-proof{
+  background:var(--bg3);border:1px dashed rgba(255,255,255,0.1);
+  border-radius:var(--radius);padding:10px 14px;margin-top:12px;
+  font-size:12px;color:var(--text3);display:flex;align-items:center;gap:8px;
+}
+
+/* ===== COMPARE ===== */
+.compare-sec{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cmp-wrap{overflow-x:auto;margin-top:28px;border-radius:var(--radius-lg);border:1px solid var(--border)}
+.cmp-tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.cmp-tbl th{
+  padding:14px 16px;text-align:left;font-weight:600;font-size:12px;
+  color:var(--text3);background:var(--bg3);
+  border-bottom:1px solid var(--border);letter-spacing:.5px;text-transform:uppercase;
+}
+.cmp-tbl th:last-child{
+  color:var(--accent3);background:rgba(14,165,233,0.1);
+}
+.cmp-tbl td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.05);vertical-align:top}
+.cmp-tbl tr:last-child td{border-bottom:none}
+.cmp-tbl tr:hover td{background:rgba(255,255,255,0.02)}
+.cmp-tbl td:last-child{background:rgba(14,165,233,0.05)}
+.col-bad{color:var(--coral);font-size:13px}
+.col-good{color:var(--teal);font-weight:600}
+.row-label{font-weight:500;color:var(--text)}
+
+/* ===== PROOF ===== */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:600px){.proof-grid{grid-template-columns:1fr}}
+.proof-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:22px;text-align:center;
+  transition:border-color .2s,transform .2s;position:relative;overflow:hidden;
+}
+.proof-card::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(14,165,233,0.1) 0%,transparent 70%);
+}
+.proof-card:hover{border-color:rgba(14,165,233,0.5);transform:translateY(-3px)}
+.proof-card b{
+  font-size:32px;font-weight:900;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;margin-bottom:4px;line-height:1.1;
+}
+.proof-card small{font-size:12px;color:var(--text3)}
+.proof-imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.proof-ph{
+  background:var(--card);border:1px dashed rgba(255,255,255,0.12);
+  border-radius:var(--radius);aspect-ratio:16/10;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--text3);text-align:center;padding:12px;
+}
+@media(max-width:500px){.proof-imgs{grid-template-columns:1fr}}
+
+/* ===== INSTRUCTOR ===== */
+.inst-sec{background:var(--bg2);border-top:1px solid var(--border)}
+.inst{
+  display:flex;gap:28px;align-items:flex-start;
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-xl);
+  padding:32px;position:relative;overflow:hidden;
+}
+.inst::before{
+  content:'';position:absolute;top:0;right:0;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(14,165,233,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+@media(max-width:600px){.inst{flex-direction:column}}
+.inst-img{
+  width:140px;height:140px;border-radius:var(--radius-lg);
+  background:var(--bg3);flex-shrink:0;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:var(--text3);text-align:center;
+  border:1px solid var(--border);
+}
+.inst h3{font-size:20px;font-weight:800;color:var(--text);margin-bottom:3px}
+.inst-title{font-size:13px;color:var(--accent3);font-weight:600;margin-bottom:10px}
+.inst p{font-size:14px;color:var(--text2);line-height:1.7}
+.inst-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.inst-badge{
+  padding:5px 12px;border-radius:50px;font-size:11.5px;font-weight:600;
+  background:rgba(14,165,233,0.12);border:1px solid rgba(14,165,233,0.3);color:var(--accent3);
+}
+
+/* ===== MODULES ===== */
+.mod-list{display:flex;flex-direction:column;gap:10px}
+.mod{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:20px 24px;
+  transition:all .2s;cursor:pointer;
+}
+.mod:hover{border-color:rgba(14,165,233,0.5);background:rgba(14,165,233,0.05)}
+.mod-hdr{display:flex;align-items:center;gap:14px}
+.mod-n{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;flex-shrink:0;
+  box-shadow:0 4px 12px rgba(14,165,233,0.4);
+}
+.mod h3{font-size:15px;font-weight:600;color:var(--text);flex:1}
+.mod-body{margin-top:10px;padding-left:52px;font-size:13px;color:var(--text2);line-height:1.65}
+.mod-tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.mod-tag{display:inline-block;padding:3px 10px;border-radius:50px;font-size:11px;font-weight:600}
+.t-out{background:rgba(0,212,161,0.12);color:var(--teal);border:1px solid rgba(0,212,161,0.2)}
+.t-time{background:rgba(255,184,0,0.12);color:var(--gold);border:1px solid rgba(255,184,0,0.2)}
+
+/* ===== ASSETS ===== */
+.assets-sec{background:linear-gradient(180deg,rgba(14,165,233,0.07) 0%,var(--bg) 100%);border-top:1px solid var(--border)}
+.assets-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.assets-grid{grid-template-columns:1fr}}
+.asset-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:22px;position:relative;overflow:hidden;
+  transition:border-color .2s,transform .2s;
+}
+.asset-card:hover{border-color:rgba(14,165,233,0.5);transform:translateY(-3px)}
+.asset-card::before{
+  content:attr(data-num);
+  position:absolute;top:-10px;right:16px;
+  font-size:80px;font-weight:900;color:rgba(14,165,233,0.07);
+  line-height:1;pointer-events:none;
+}
+.asset-card .asset-title{font-size:14.5px;font-weight:700;color:var(--accent2);margin-bottom:7px}
+.asset-card p{font-size:13px;color:var(--text2);line-height:1.65}
+
+/* ===== TESTIMONIALS ===== */
+.testi-sec{background:var(--bg2);border-top:1px solid var(--border)}
+.testi{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:24px;margin-bottom:14px;
+  transition:border-color .2s;
+}
+.testi:hover{border-color:rgba(14,165,233,0.3)}
+.testi-result{
+  background:rgba(0,212,161,0.1);border:1px solid rgba(0,212,161,0.2);
+  border-radius:var(--radius);padding:9px 14px;margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--teal)
+}
+.testi-q{
+  font-size:14.5px;color:var(--text);line-height:1.75;font-style:italic;
+  margin-bottom:14px;padding-left:20px;
+  border-left:3px solid rgba(14,165,233,0.5);
+}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-av{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--bg3);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text3);
+  border:1px solid var(--border);overflow:hidden;
+}
+.testi-name{font-size:13.5px;font-weight:700;color:var(--text)}
+.testi-role{font-size:11.5px;color:var(--text3)}
+.testi-ss{
+  margin-top:12px;
+  background:var(--bg3);border:1px dashed rgba(255,255,255,0.1);
+  border-radius:var(--radius);aspect-ratio:16/7;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--text3);text-align:center;padding:10px;
+}
+
+/* ===== EVENTS ===== */
+.events-sec{background:var(--bg);border-top:1px solid var(--border)}
+.events-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+.event-ph{
+  background:var(--card);border:1px dashed rgba(255,255,255,0.1);border-radius:var(--radius-lg);
+  aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--text3);text-align:center;padding:12px;
+}
+
+/* ===== OFFER ===== */
+.offer-sec{background:var(--bg2);border-top:1px solid var(--border)}
+.offer-box{
+  background:var(--card);
+  border:1px solid rgba(14,165,233,0.4);
+  border-radius:var(--radius-xl);padding:36px;position:relative;overflow:hidden;
+  box-shadow:0 0 60px rgba(14,165,233,0.12),0 20px 60px rgba(0,0,0,.3);
+}
+.offer-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#0369A1,var(--accent),var(--accent2),var(--accent3));
+}
+.offer-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.offer-item:last-child{border-bottom:none}
+.offer-chk{
+  width:24px;height:24px;border-radius:50%;
+  background:rgba(0,212,161,0.15);border:1px solid rgba(0,212,161,0.3);
+  color:var(--teal);display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.offer-txt{font-size:14.5px;line-height:1.5;color:var(--text)}
+.offer-txt .val{font-size:12px;color:var(--text3)}
+
+/* BONUS */
+.bonus-list{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.bonus{
+  background:rgba(255,184,0,0.08);border:1px solid rgba(255,184,0,0.2);
+  border-radius:var(--radius);padding:16px 20px;
+}
+.bonus b{font-size:14px;color:var(--gold);display:block;margin-bottom:5px}
+.bonus p{font-size:13px;color:var(--text2);line-height:1.6;margin:0}
+.bonus .bv{font-size:12px;color:var(--gold);font-weight:700;margin-top:5px;opacity:.8}
+
+/* PRICE BOX */
+.price-box{
+  text-align:center;padding:32px 0 24px;margin-top:24px;
+  border-top:1px dashed rgba(255,255,255,0.1);
+}
+.price-old{font-size:16px;color:var(--text3);text-decoration:line-through;margin-bottom:4px}
+.price-new{
+  font-size:clamp(38px,8vw,52px);font-weight:900;
+  background:linear-gradient(135deg,var(--coral),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;margin-bottom:10px;
+}
+.price-frame{
+  display:inline-block;background:rgba(255,184,0,0.12);
+  border:1px solid rgba(255,184,0,0.25);
+  padding:6px 16px;border-radius:50px;
+  font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;
+}
+.price-note{font-size:13px;color:var(--text2)}
+
+/* GUARANTEE */
+.guar-sec{background:var(--bg);border-top:1px solid var(--border)}
+.guar{
+  background:rgba(0,212,161,0.08);border:1px solid rgba(0,212,161,0.25);
+  border-radius:var(--radius-xl);padding:36px;text-align:center;
+}
+.guar-icon{font-size:48px;margin-bottom:16px}
+.guar h3{font-size:20px;font-weight:800;color:var(--teal);margin-bottom:10px}
+.guar p{font-size:15px;color:var(--text2);line-height:1.7;max-width:560px;margin:0 auto}
+
+/* FAQ */
+.faq-sec{background:var(--bg2);border-top:1px solid var(--border)}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  overflow:hidden;transition:border-color .2s;
+}
+.faq:hover{border-color:rgba(14,165,233,0.4)}
+.faq-q{
+  font-size:14.5px;font-weight:600;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:18px 22px;user-select:none;
+}
+.faq-q .faq-icon{
+  width:26px;height:26px;border-radius:50%;
+  background:rgba(14,165,233,0.12);border:1px solid rgba(14,165,233,0.3);
+  color:var(--accent3);display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;transition:transform .25s,background .2s;
+}
+.faq-q.open .faq-icon{transform:rotate(45deg);background:var(--accent);border-color:var(--accent)}
+.faq-a{
+  font-size:13.5px;color:var(--text2);line-height:1.7;
+  max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;
+  padding:0 22px;
+}
+.faq-a.open{max-height:400px;padding:0 22px 18px}
+
+/* FINAL CTA */
+.final-cta-sec{
+  background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(14,165,233,0.18) 0%,transparent 70%);
+  border-top:1px solid var(--border);
+}
+
+/* TWO CHOICES */
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+@media(max-width:540px){.choices{grid-template-columns:1fr}}
+.choice{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px}
+.choice.bad{border-top:3px solid var(--coral)}
+.choice.good{border-top:3px solid var(--teal)}
+.choice h4{font-size:14.5px;font-weight:700;margin-bottom:10px}
+.choice.bad h4{color:var(--coral)}
+.choice.good h4{color:var(--teal)}
+.choice ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.choice ul li{font-size:13px;color:var(--text2);display:flex;align-items:flex-start;gap:8px}
+.choice ul li::before{flex-shrink:0;margin-top:2px}
+.choice.bad ul li::before{content:'✗';color:var(--coral)}
+.choice.good ul li::before{content:'✓';color:var(--teal)}
+
+/* URGENCY STICKY */
+.urg{
+  background:linear-gradient(90deg,#0369A1 0%,var(--accent) 50%,var(--accent2) 100%);
+  color:#fff;text-align:center;padding:13px 20px;
+  font-size:13px;font-weight:600;position:sticky;bottom:0;z-index:100;
+  display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
+  box-shadow:0 -4px 20px rgba(14,165,233,0.4);
+}
+.urg-spots{background:rgba(255,255,255,.15);padding:4px 10px;border-radius:50px;font-size:12px}
+.urg a{
+  color:#fff;background:rgba(255,255,255,.2);
+  padding:8px 20px;border-radius:var(--radius);font-weight:700;font-size:13px;
+  transition:background .15s;border:1px solid rgba(255,255,255,.25);
+}
+.urg a:hover{background:rgba(255,255,255,.3)}
+
+/* ZALO FLOAT */
+.zalo-f{position:fixed;bottom:80px;right:20px;z-index:99;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.zalo-tip{
+  background:var(--text);color:var(--bg);padding:7px 14px;border-radius:var(--radius);
+  font-size:11.5px;font-weight:600;white-space:nowrap;
+  opacity:0;transform:translateX(10px);transition:all .3s;pointer-events:none;
+}
+.zalo-f:hover .zalo-tip{opacity:1;transform:translateX(0)}
+.zalo-btn{
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,#0068FF,#0093FF);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(0,104,255,0.5);
+}
+.zalo-btn:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(0,104,255,0.7)}
+.zalo-btn svg{width:28px;height:28px;fill:#fff}
+
+/* FOOTER */
+.footer{padding:40px 0;text-align:center;font-size:12.5px;color:var(--text3);border-top:1px solid var(--border)}
+.footer strong{color:var(--text2);font-weight:600}
+.footer-links{display:flex;gap:20px;justify-content:center;margin-top:12px}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0}
+
+/* TEXT UTILITIES */
+.text-center{text-align:center}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}
+.mt-24{margin-top:24px}.mt-28{margin-top:28px}.mt-32{margin-top:32px}
+.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}
+.mb-24{margin-bottom:24px}.mb-32{margin-bottom:32px}
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  .hero{padding:60px 0 52px}
+  .section{padding:56px 0}
+  .section-sm{padding:40px 0}
+  .hero-stats{flex-direction:column;align-items:center}
+  .stat{width:100%;min-width:0}
+  .offer-box{padding:22px}
+  .inst-img{width:100px;height:100px}
+  .story-box{padding:24px}
+}
+
+/* SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* SECTION BG PATTERNS */
+.bg-dots{
+  background-image:radial-gradient(circle,rgba(14,165,233,0.1) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+</style>
+</head>
+<body>
+
+<!-- COUNTDOWN BAR -->
+<div class="cd-bar">
+  🔥 Đợt đăng ký đóng sau: <span class="cd-nums"><span class="cd-box" id="cd-d">02</span><span class="cd-sep">ngày</span> <span class="cd-box" id="cd-h">14</span><span class="cd-sep">giờ</span> <span class="cd-box" id="cd-m">32</span><span class="cd-sep">phút</span></span> — Chỉ còn <strong>17</strong>/20 chỗ
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      KHOÁ HỌC ONLINE — COACHING TRỰC TIẾP
+    </div>
+    <h1>Khoá học</h1>
+    <div class="hero-name">KỸ SƯ YOUTUBE</div>
+    <p class="hero-sub">Làm sao để một kỹ sư, dân văn phòng, công chức đi làm 8 tiếng mỗi ngày vẫn tạo ra thu nhập thụ động từ YouTube — không cần bỏ việc hay biết quay dựng?</p>
+
+    <!-- VSL -->
+    <div class="vsl-wrap">
+      <div class="vsl" onclick="alert('Thay bằng embed video thật của anh Huân')">
+        <div class="vsl-overlay"></div>
+        <div class="vsl-play"></div>
+        <div class="vsl-txt">▶ Xem video 3 phút: Từ kỹ sư điện đến 50+ kênh YouTube nút bạc</div>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat"><b>50+</b><small>Kênh nút bạc</small></div>
+      <div class="stat"><b>15M+</b><small>Subscriber</small></div>
+      <div class="stat"><b>1.900+</b><small>Học viên trả phí</small></div>
+      <div class="stat"><b>250+</b><small>Nhân sự</small></div>
+    </div>
+
+    <div class="cta-g">
+      <a href="#offer" class="cta-btn">ĐĂNG KÝ NGAY — 8.868.000đ <span class="arrow">→</span></a>
+      <span class="cta-sub">Trả góp 0% — Chỉ từ 2.956.000đ × 3 tháng</span>
+      <a href="https://zalo.me/XXXXXXXXX" class="cta-zalo" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Chat Zalo để được tư vấn
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NỖI ĐAU ===== -->
+<section class="pain section-sm">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="sec-label">VẤN ĐỀ</div>
+      <h2 class="sec-title">Bạn có đang sống trong <span style="color:var(--coral)">"sự nghèo ổn định"</span>?</h2>
+      <p class="sec-sub">Giỏi chuyên môn, ai cũng khen "công việc ổn định" — nhưng mỗi tháng vẫn là vòng quay: đi làm → lãnh lương → trả nợ → chờ tháng sau.</p>
+    </div>
+    <div class="pain-grid reveal">
+      <div class="pain-card">
+        <div class="pain-icon">💸</div>
+        <h3>Lương 10–20 triệu ở thành phố — vừa đủ sống, không đủ mơ</h3>
+        <p>Trừ tiền nhà, tiền ăn, tiền đi lại — còn lại gần như bằng 0. Về quê bị so sánh. Ở thành phố thì chật vật.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">😔</div>
+        <h3>Muốn chăm lo vợ con, bố mẹ — nhưng cứ mỗi lần phát sinh là lại xoay xở</h3>
+        <p>Bệnh tật, học hành, đám cưới... bạn lại phải đi vay hoặc tự trấn an "chưa có điều kiện".</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">⏰</div>
+        <h3>Không muốn làm thuê 8–12 tiếng/ngày cả đời — nhưng không biết cách nào khác</h3>
+        <p>Đã thử freelance, bán hàng online — tất cả đều giống nhau: đổi thêm giờ lấy thêm tiền. Ngừng làm là ngừng có tiền.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🤔</div>
+        <h3>Thấy bạn bè làm YouTube, kiếm vài chục triệu — và tự hỏi mình có sai không?</h3>
+        <p>Có lúc bạn tự hỏi: "Mình học bao nhiêu năm để rồi... chỉ đủ sống?" Câu trả lời không nằm ở chỗ bỏ việc.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CÂU CHUYỆN ===== -->
+<section class="story section">
+  <div class="container">
+    <div class="story-box reveal">
+      <p class="story-quote">"Có một kiểu nghèo mà không ai nói ra — đó là nghèo trong sự ổn định."</p>
+      <div class="story-img">[Ảnh anh Huân thời phòng trọ / ảnh cũ]</div>
+      <div class="story-body">
+        <p>Tôi là <strong>Nguyễn Văn Huân</strong> — từng là một kỹ sư điện.</p>
+        <p class="mt-12">10 năm trước, tôi sống trong một căn phòng trọ 12m² — nơi giường ngủ, bếp nấu, và nhà vệ sinh gần như chồng lên nhau. Giá thuê: 600.000 đồng/tháng cho hai người.</p>
+        <p class="mt-12">Tài chính của tôi lúc đó là: <strong>ăn bữa nay lo bữa mai, tài khoản ngân hàng trống rỗng.</strong> Tôi hiểu cảm giác đi làm không dám nghỉ, về nhà không dám mơ.</p>
+        <p class="mt-12">Tôi cũng từng tự hỏi: <strong>"Mình học hành bao nhiêu năm để rồi... chỉ đủ sống?"</strong></p>
+        <p class="mt-12">Cho đến khi tôi nhận ra: <strong>Nếu không tự tạo ra thu nhập thứ hai từ Internet, thì 10 năm nữa, mình vẫn ở y nguyên vị trí này.</strong></p>
+      </div>
+      <div class="story-highlight">
+        YouTube — không chỉ là mạng xã hội, mà là cỗ máy tạo thu nhập tự động.<br>
+        Nó đã giúp tôi thoát khỏi cảnh đó. <span style="color:var(--teal);font-weight:700">Và bạn cũng có thể.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GIẢI PHÁP ===== -->
+<section class="section bg-dots" style="background-color:var(--bg2)">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="sec-label">GIẢI PHÁP</div>
+      <h2 class="sec-title">YouTube Faceless — <span class="gradient-text">Tài sản số làm việc thay bạn 24/7</span></h2>
+      <p class="sec-sub">Mỗi video bạn đăng là 1 "nhân viên" số — mang traffic và tiền về ngay cả khi bạn đang ngủ.</p>
+    </div>
+    <div class="sol-grid reveal">
+      <div class="sol-card">
+        <div class="sol-top">
+          <div class="sol-num sol-num-1">01</div>
+          <div><h3>Không cần lộ mặt, không cần quay video</h3><p>AI tạo giọng nói, viết nội dung, ghép hình. Chỉ cần laptop và wifi. Không ai biết mặt người làm kênh.</p></div>
+        </div>
+        <div class="sol-proof">📸 [Screenshot 1 kênh faceless thật — subscriber + không có mặt người]</div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-top">
+          <div class="sol-num sol-num-2">02</div>
+          <div><h3>Chỉ cần 2–3 giờ rảnh mỗi ngày — ngoài giờ hành chính</h3><p>Tối T2–T5 sản xuất video. Cuối tuần upload + tối ưu. Không ảnh hưởng công việc chính.</p></div>
+        </div>
+        <div class="sol-proof">📅 [Screenshot lịch sản xuất / Notion board thật của học viên đang đi làm]</div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-top">
+          <div class="sol-num sol-num-3">03</div>
+          <div><h3>Thu nhập tích luỹ — không đổi giờ lấy tiền</h3><p>Video làm hôm nay vẫn kiếm tiền 2–3 năm sau. Càng nhiều video, "đội ngũ nhân viên số" càng lớn.</p></div>
+        </div>
+        <div class="sol-proof">📊 [Screenshot 1 video cũ 12+ tháng vẫn có view + revenue]</div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-top">
+          <div class="sol-num sol-num-4">04</div>
+          <div><h3>Hệ thống đã được chứng minh — 1.900+ học viên trả phí</h3><p>50+ kênh nút bạc, 15M subscriber, 250+ nhân sự. Bạn học từ hệ thống đang vận hành mỗi ngày.</p></div>
+        </div>
+        <div class="sol-proof">🏆 [Ảnh chụp nút bạc/nút vàng YouTube thật]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SO SÁNH ===== -->
+<section class="compare-sec section-sm">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="sec-label">SO SÁNH</div>
+      <h2 class="sec-title">YouTube Faceless vs các cách kiếm thêm khác</h2>
+    </div>
+    <div class="cmp-wrap reveal">
+      <table class="cmp-tbl">
+        <thead>
+          <tr>
+            <th>Tiêu chí</th>
+            <th>Freelance</th>
+            <th>Bán hàng online</th>
+            <th>⭐ YouTube Faceless</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-label">Thời gian/ngày</td><td class="col-bad">3–5h</td><td class="col-bad">4–8h</td><td class="col-good">1–2h ngoài giờ</td></tr>
+          <tr><td class="row-label">Vốn ban đầu</td><td style="color:var(--text2)">Thấp</td><td class="col-bad">5–50 triệu</td><td class="col-good">Dưới 300K/tháng</td></tr>
+          <tr><td class="row-label">Ngừng làm?</td><td class="col-bad">Hết tiền ngay</td><td class="col-bad">Tồn kho, mất đơn</td><td class="col-good">Video cũ vẫn chạy</td></tr>
+          <tr><td class="row-label">Tính tích luỹ</td><td class="col-bad">Không có</td><td class="col-bad">Thấp</td><td class="col-good">Cao — tài sản số</td></tr>
+          <tr><td class="row-label">Rủi ro</td><td style="color:var(--text2)">Thấp nhưng kiệt sức</td><td class="col-bad">Cao</td><td class="col-good">Rất thấp</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROOF ===== -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="sec-label">CHỨNG MINH</div>
+      <h2 class="sec-title">Không phải lý thuyết — <span class="accent-text">Hệ thống đang vận hành</span></h2>
+    </div>
+    <div class="proof-grid reveal">
+      <div class="proof-card"><b>50+</b><small>Kênh nút bạc</small></div>
+      <div class="proof-card"><b>6</b><small>Kênh nút vàng</small></div>
+      <div class="proof-card"><b>15M+</b><small>Tổng subscriber</small></div>
+    </div>
+    <div class="proof-imgs reveal">
+      <div class="proof-ph">📊 [YouTube Analytics kênh 1]</div>
+      <div class="proof-ph">📊 [YouTube Analytics kênh 2]</div>
+      <div class="proof-ph">🏆 [Ảnh nút bạc / nút vàng thật]</div>
+      <div class="proof-ph">💰 [Screenshot AdSense revenue]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSTRUCTOR ===== -->
+<section class="inst-sec section-sm">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="sec-label">NGƯỜI HƯỚNG DẪN</div>
+      <h2 class="sec-title mb-32">Người đứng sau chương trình</h2>
+    </div>
+    <div class="inst reveal">
+      <div class="inst-img">[Ảnh anh Huân]</div>
+      <div>
+        <h3>Nguyễn Văn Huân</h3>
+        <div class="inst-title">Cựu kỹ sư điện → Founder GODA Holding</div>
+        <p>Bắt đầu YouTube từ 2016 như tờ giấy trắng. Không biết quay dựng, không biết nói chuyện trước camera, không có team. Nhưng có chiến lược đúng. Và nhờ đó, hôm nay sở hữu hệ thống 50+ kênh nút bạc, 6 kênh nút vàng, 250+ nhân sự, và đã đào tạo 1.900+ học viên trả phí.</p>
+        <p class="mt-8" style="font-weight:600;color:var(--text)">"Tôi tạo ra khoá Kỹ Sư YouTube để giúp những người giống tôi trước đây — có công việc ổn định nhưng tài chính tù túng — tìm được con đường bứt phá an toàn và thực tế."</p>
+        <div class="inst-badges">
+          <span class="inst-badge">50+ kênh nút bạc</span>
+          <span class="inst-badge">6 kênh nút vàng</span>
+          <span class="inst-badge">1.900+ học viên</span>
+          <span class="inst-badge">250+ nhân sự</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODULES ===== -->
+<section class="section" id="modules" style="background:var(--bg2)">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="sec-label">CHƯƠNG TRÌNH</div>
+      <h2 class="sec-title">Bạn sẽ được học gì?</h2>
+      <p class="sec-sub">7 module — từ nền tảng đến hệ thống tự động.<br>Coaching trực tiếp buổi tối + video xem lại bất cứ lúc nào.</p>
+    </div>
+    <div class="mod-list reveal">
+      <div class="mod">
+        <div class="mod-hdr"><div class="mod-n">1</div><h3>Kiến thức nền tảng YouTube — An toàn & bền vững</h3></div>
+        <div class="mod-body">Thuật toán, chính sách kiếm tiền, nguyên tắc cộng đồng. Tránh những lỗi khiến kênh bị reset hoặc chết trước khi lớn.
+          <div class="mod-tags"><span class="mod-tag t-out">Output: Hiểu rõ luật chơi YouTube</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mod-hdr"><div class="mod-n">2</div><h3>Tư duy chiến lược — Xây kênh như hệ thống kinh doanh</h3></div>
+        <div class="mod-body">Chọn đúng niche sinh lời cao (VN & Global). Chiến lược nuôi kênh + nhân bản. Tối ưu cho người đi làm 2–4h/tuần.
+          <div class="mod-tags"><span class="mod-tag t-out">Output: Kênh YouTube setup hoàn chỉnh</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mod-hdr"><div class="mod-n">3</div><h3>Nội dung không lộ mặt — Ngay cả người mới vẫn làm được</h3></div>
+        <div class="mod-body">Video faceless đơn giản, hiệu quả cao. Công cụ AI dựng video nhanh. Công thức giữ chân người xem.
+          <div class="mod-tags"><span class="mod-tag t-out">Output: 5 video đầu tiên upload</span><span class="mod-tag t-time">45p–1.5h/video</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mod-hdr"><div class="mod-n">4</div><h3>AI Content Creation — Sức mạnh của thời đại</h3></div>
+        <div class="mod-body">ChatGPT viết script chuyên nghiệp. Phân tích đối thủ bằng AI. Clone voice — tạo giọng nói riêng, không cần thu âm.
+          <div class="mod-tags"><span class="mod-tag t-out">Output: Quy trình AI hoàn chỉnh</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mod-hdr"><div class="mod-n">5</div><h3>Fair Use & SEO YouTube từ A–Z</h3></div>
+        <div class="mod-body">Dùng bản quyền hợp pháp. SEO: title, thumbnail, mô tả, hashtag, từ khoá. Phân tích đối thủ để tối ưu liên tục.
+          <div class="mod-tags"><span class="mod-tag t-out">Output: Video được tối ưu SEO hoàn chỉnh</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mod-hdr"><div class="mod-n">6</div><h3>Hệ thống kênh kiếm tiền tự động</h3></div>
+        <div class="mod-body">Chiến lược nội dung dài hạn. Tối ưu bố cục kênh. Nhân bản kênh mở rộng hệ thống, đa nguồn thu nhập.
+          <div class="mod-tags"><span class="mod-tag t-out">Output: Kế hoạch nhân bản 2–3 kênh</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mod-hdr"><div class="mod-n">7</div><h3>Hỗ trợ thực chiến — Không để bạn làm một mình</h3></div>
+        <div class="mod-body">Cộng đồng học viên riêng 24/7. Đội ngũ hỗ trợ kỹ thuật + chiến lược. Buổi Zoom cố vấn cùng Nguyễn Văn Huân.
+          <div class="mod-tags"><span class="mod-tag t-out">Cam kết: Luôn có người kèm và chỉ đường cụ thể</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4 TÀI SẢN ===== -->
+<section class="assets-sec section-sm">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="sec-label">KẾT QUẢ</div>
+      <h2 class="sec-title">Bạn rời khỏi chương trình với <span class="gradient-text">4 tài sản thật</span></h2>
+      <p class="sec-sub">(Không phải lý thuyết — Tài sản có thể xây dựng ngay trong khoá học)</p>
+    </div>
+    <div class="assets-grid reveal">
+      <div class="asset-card" data-num="1">
+        <div class="asset-title">① Kênh YouTube xây bài bản</div>
+        <p>Sở hữu ít nhất 1 kênh YouTube được xây đúng chiến lược — không làm kiểu hên xui, có thể nhân rộng.</p>
+      </div>
+      <div class="asset-card" data-num="2">
+        <div class="asset-title">② Kỹ năng video faceless bằng AI</div>
+        <p>Quy trình tạo video không lộ mặt + tự động hoá hoàn chỉnh. Đơn giản, dễ nhân bản khi mở rộng.</p>
+      </div>
+      <div class="asset-card" data-num="3">
+        <div class="asset-title">③ Tư duy xây kênh có chiến lược</div>
+        <p>Chọn niche, đóng gói nội dung, tối ưu thời gian, đo lường — như triển khai dự án kỹ thuật có KPI.</p>
+      </div>
+      <div class="asset-card" data-num="4">
+        <div class="asset-title">④ Cơ hội dòng tiền 12–60 triệu/tháng</div>
+        <p>Hướng đến 1.000$–5.000$/tháng từ thị trường VN hoặc Global. Kết quả tăng dần theo thời gian và nỗ lực.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testi-sec section-sm">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="sec-label">HỌC VIÊN NÓI GÌ</div>
+      <h2 class="sec-title">Kết quả thực tế từ 1.900+ học viên</h2>
+      <p class="sec-sub">Từ các chương trình đã tổ chức của anh Huân</p>
+    </div>
+
+    <div class="testi reveal">
+      <div class="testi-result">🚀 Video đầu tiên vượt 100.000 view sau 5 tuần</div>
+      <div class="testi-q">"Tôi đã học 2 khoá YouTube trước nhưng không đâu vào đâu. Tới khi học khoá này mới hiểu vì sao mình thất bại: không có tư duy chiến lược. Sau 5 tuần làm đúng theo hướng dẫn, tôi có video đầu tiên vượt 100.000 view."</div>
+      <div class="testi-author">
+        <div class="testi-av">[Ảnh]</div>
+        <div><div class="testi-name">Phạm Minh</div><div class="testi-role">Học viên — [Vị trí + thành phố]</div></div>
+      </div>
+      <div class="testi-ss">📊 [Screenshot YouTube Analytics — view video vượt 100K]</div>
+    </div>
+
+    <div class="testi reveal">
+      <div class="testi-result">📈 3 kênh hoạt động — 1 kênh cán mốc 10.000 subscriber</div>
+      <div class="testi-q">"Tôi là người cực kỳ ngại công nghệ. Trước học khoá online nào cũng bỏ dở. Nhưng khoá của anh Huân thì khác. Hướng dẫn dễ hiểu, thực tế, làm tới đâu thấy kết quả tới đó."</div>
+      <div class="testi-author">
+        <div class="testi-av">[Ảnh]</div>
+        <div><div class="testi-name">Trần Văn Hải</div><div class="testi-role">Học viên — [Vị trí + thành phố]</div></div>
+      </div>
+      <div class="testi-ss">📊 [Screenshot kênh 10K subscriber]</div>
+    </div>
+
+    <div class="testi reveal">
+      <div class="testi-result">⬆️ Kênh tăng subscriber mỗi ngày sau vài tuần</div>
+      <div class="testi-q">"Khoá này giúp tôi hiểu rõ cách chọn niche và xây nội dung đúng chiến lược. Sau vài tuần làm theo hướng dẫn, kênh của tôi đã có video 50.000 view. Quan trọng nhất là biết mình làm đúng và có thể đi lâu dài."</div>
+      <div class="testi-author">
+        <div class="testi-av">[Ảnh]</div>
+        <div><div class="testi-name">Nguyễn Hoàng Long</div><div class="testi-role">Học viên — [Vị trí + thành phố]</div></div>
+      </div>
+      <div class="testi-ss">📊 [Screenshot subscriber growth chart]</div>
+    </div>
+
+    <p class="text-center mt-16" style="font-size:13px;color:var(--text3)">[Khu vực đặt thêm screenshot feedback Zalo/Facebook từ học viên]</p>
+  </div>
+</section>
+
+<!-- ===== EVENTS ===== -->
+<section class="events-sec section-sm">
+  <div class="container text-center">
+    <div class="sec-label reveal">HÌNH ẢNH THỰC TẾ</div>
+    <h2 class="sec-title reveal">Từ các khoá học đã tổ chức</h2>
+    <div class="events-grid reveal">
+      <div class="event-ph">📸 [Ảnh sự kiện / lớp học offline 1]</div>
+      <div class="event-ph">📸 [Ảnh sự kiện / lớp học offline 2]</div>
+      <div class="event-ph">📸 [Ảnh sự kiện / lớp học offline 3]</div>
+      <div class="event-ph">📸 [Ảnh sự kiện / lớp học offline 4]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFER ===== -->
+<section class="offer-sec section" id="offer">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="sec-label">GÓI ĐĂNG KÝ</div>
+      <h2 class="sec-title">Combo 3 khoá trong 1 — <span class="gradient-text">Bạn nhận được gì?</span></h2>
+      <p class="sec-sub">Edit Video Faceless + Content YouTube Faceless + Foundation — gói tất cả trong 1 chương trình duy nhất.</p>
+    </div>
+    <div class="offer-box reveal">
+      <div class="offer-item"><div class="offer-chk">✓</div><div class="offer-txt">Khoá Edit Video Faceless — từ 0 đến thành thạo <span class="val">(trị giá 2.868.000đ)</span></div></div>
+      <div class="offer-item"><div class="offer-chk">✓</div><div class="offer-txt">Khoá Content YouTube Faceless — chiến lược nội dung thu hút <span class="val">(trị giá 3.868.000đ)</span></div></div>
+      <div class="offer-item"><div class="offer-chk">✓</div><div class="offer-txt">Khoá Faceless YouTube Foundation — hệ thống hoàn chỉnh <span class="val">(trị giá 6.868.000đ)</span></div></div>
+      <div class="offer-item"><div class="offer-chk">✓</div><div class="offer-txt">7 module coaching trực tiếp buổi tối <span class="val">(trị giá 5.000.000đ)</span></div></div>
+      <div class="offer-item"><div class="offer-chk">✓</div><div class="offer-txt">Buổi Zoom cố vấn cùng Nguyễn Văn Huân <span class="val">(trị giá 2.000.000đ)</span></div></div>
+      <div class="offer-item"><div class="offer-chk">✓</div><div class="offer-txt">Cộng đồng học viên riêng — hỗ trợ 24/7 <span class="val">(trị giá 1.000.000đ)</span></div></div>
+      <div class="offer-item"><div class="offer-chk">✓</div><div class="offer-txt">Đội ngũ hỗ trợ kỹ thuật + chiến lược trực tiếp <span class="val">(trị giá 1.500.000đ)</span></div></div>
+
+      <div class="bonus-list">
+        <div class="bonus"><b>🎁 Bonus 1: Bộ template script + thumbnail các niche hot nhất 2026</b><p>Chỉ cần mở ra, điền vào, sản xuất. Không cần nghĩ ý tưởng từ đầu.</p><p class="bv">Trị giá: 1.000.000đ — MIỄN PHÍ</p></div>
+        <div class="bonus"><b>🎁 Bonus 2: Clone Voice AI — Tạo giọng nói riêng không cần thu âm</b><p>Hướng dẫn tạo giọng AI cá nhân hoá. Nội dung mang dấu ấn riêng, không generic.</p><p class="bv">Trị giá: 1.500.000đ — MIỄN PHÍ</p></div>
+        <div class="bonus"><b>🎁 Bonus 3: Lịch sản xuất 90 ngày dành cho người đi làm</b><p>Template Notion — lịch tuần, tracker video, tracker analytics. Mở ra và làm theo.</p><p class="bv">Trị giá: 500.000đ — MIỄN PHÍ</p></div>
+      </div>
+
+      <div class="price-box">
+        <div class="price-old">Tổng giá trị: 26.104.000đ</div>
+        <div class="price-new">8.868.000đ</div>
+        <div class="price-frame">= 2.956.000đ/tháng × 3 — ít hơn 100K/ngày</div>
+        <div class="price-note mt-8">Trả góp 0% qua thẻ tín dụng | Tiết kiệm 66% so với mua lẻ</div>
+
+        <div class="cta-g mt-24">
+          <a href="#" class="cta-btn">ĐĂNG KÝ NGAY — 8.868.000đ <span class="arrow">→</span></a>
+          <span class="cta-sub">Giới hạn 20 học viên/khoá — coaching 1:1 hàng tuần</span>
+          <a href="https://zalo.me/XXXXXXXXX" class="cta-zalo" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Có câu hỏi? Chat Zalo tư vấn
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GUARANTEE ===== -->
+<section class="guar-sec section-sm">
+  <div class="container">
+    <div class="guar reveal">
+      <div class="guar-icon">🛡️</div>
+      <h3>Cam kết hoàn tiền nếu học xong mà không ra kênh YouTube</h3>
+      <p>Nếu bạn hoàn thành chương trình mà không tạo được kênh YouTube hoạt động — tôi hoàn lại tiền. Không hỏi lý do. Không điều kiện. <strong style="color:var(--teal)">Bạn không có gì để mất.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-sec section-sm">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="sec-label">FAQ</div>
+      <h2 class="sec-title mb-32">Câu hỏi thường gặp</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq"><div class="faq-q" onclick="toggleFaq(this)">Tôi không biết gì về YouTube, có học được không? <span class="faq-icon">+</span></div><div class="faq-a">Hoàn toàn được. Chương trình thiết kế từ số 0. Mỗi bước có video hướng dẫn chi tiết, template có sẵn, và coaching trực tiếp mỗi tuần để đảm bảo bạn không bị bỏ lại.</div></div>
+      <div class="faq"><div class="faq-q" onclick="toggleFaq(this)">Tôi rất bận, đi làm 8 tiếng/ngày — liệu có học nổi không? <span class="faq-icon">+</span></div><div class="faq-a">Mỗi bài học chỉ 10–15 phút, học bất cứ khi nào rảnh. Coaching buổi tối (20h–21h30). Quy trình sản xuất video chỉ 1–1.5 tiếng. Chương trình được thiết kế RIÊNG cho người đang đi làm bận rộn.</div></div>
+      <div class="faq"><div class="faq-q" onclick="toggleFaq(this)">Bao lâu thì có thu nhập từ YouTube? <span class="faq-icon">+</span></div><div class="faq-a">Thực tế: 2–4 tháng để đạt điều kiện bật kiếm tiền (1.000 sub + 4.000 giờ xem). Thu nhập ban đầu 3–10 triệu/tháng và tăng dần theo số video. Kết quả phụ thuộc vào mức độ triển khai của bạn.</div></div>
+      <div class="faq"><div class="faq-q" onclick="toggleFaq(this)">Khác gì các khoá học YouTube khác? <span class="faq-icon">+</span></div><div class="faq-a">(1) Coaching trực tiếp buổi tối, không phải xem video rồi tự bơi. (2) Thiết kế riêng cho kỹ sư và dân văn phòng bận rộn. (3) Dạy bởi người ĐANG VẬN HÀNH 50+ kênh, 250+ nhân sự — không phải lý thuyết học thuật.</div></div>
+      <div class="faq"><div class="faq-q" onclick="toggleFaq(this)">Có cần mua thêm dụng cụ gì không? <span class="faq-icon">+</span></div><div class="faq-a">Cần đầu tư CapCut Pro và ChatGPT Plus — tổng khoảng 200–400K/tháng. Không cần camera đắt tiền, mic chuyên nghiệp, hay phòng quay riêng.</div></div>
+      <div class="faq"><div class="faq-q" onclick="toggleFaq(this)">Nếu tôi không thành công thì sao? <span class="faq-icon">+</span></div><div class="faq-a">Có cộng đồng + đội ngũ hỗ trợ 24/7 + buổi Zoom cố vấn cùng anh Huân. Và cam kết rõ ràng: học xong không ra được kênh → hoàn tiền, không điều kiện.</div></div>
+      <div class="faq"><div class="faq-q" onclick="toggleFaq(this)">Trả góp được không? <span class="faq-icon">+</span></div><div class="faq-a">Có. Trả góp 0% chia 3 đợt: 2.956.000đ/tháng × 3 tháng. Hỗ trợ qua các thẻ tín dụng phổ biến.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta-sec section">
+  <div class="container text-center">
+    <div class="sec-label reveal">QUYẾT ĐỊNH CỦA BẠN</div>
+    <h2 class="sec-title reveal">Bạn có 2 lựa chọn</h2>
+    <div class="choices reveal">
+      <div class="choice bad">
+        <h4>❌ Tiếp tục như hiện tại</h4>
+        <ul>
+          <li>Vòng quay: đi làm → lãnh lương → trả nợ</li>
+          <li>Thu nhập phụ thuộc vào giờ làm việc</li>
+          <li>10 năm nữa vẫn y nguyên vị trí đó</li>
+          <li>Mỗi chi phí phát sinh là một cơn đau đầu</li>
+        </ul>
+      </div>
+      <div class="choice good">
+        <h4>✅ Đầu tư vào kỹ năng tạo dòng tiền</h4>
+        <ul>
+          <li>Thu nhập tích luỹ ngay cả khi bạn ngủ</li>
+          <li>Video làm hôm nay, kiếm tiền 2–3 năm sau</li>
+          <li>Hệ thống dần tự động — không đổi giờ lấy tiền</li>
+          <li>Cơ hội 12–60 triệu/tháng từ năm 2</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-g reveal">
+      <a href="#offer" class="cta-btn">BẮT ĐẦU NGAY — 8.868.000đ <span class="arrow">→</span></a>
+      <span class="cta-sub">Giới hạn 20 học viên/khoá | Trả góp 0% | Hoàn tiền cam kết</span>
+      <a href="https://zalo.me/XXXXXXXXX" class="cta-zalo" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Chat Zalo để được tư vấn
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p><strong>Huan.academy — GODA EDU</strong></p>
+    <p class="mt-8">Founder: Nguyễn Văn Huân &nbsp;|&nbsp; Liên hệ: [Số điện thoại/Zalo] &nbsp;|&nbsp; [Email]</p>
+    <p class="mt-8">&copy; 2026 GODA Holding. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- URGENCY STICKY -->
+<div class="urg">
+  <span class="urg-spots">🔥 Chỉ còn <strong>17</strong>/20 chỗ</span>
+  <a href="#offer">Đăng ký ngay &rarr;</a>
+</div>
+
+<!-- ZALO FLOAT -->
+<div class="zalo-f">
+  <div class="zalo-tip">Chat Zalo để được tư vấn</div>
+  <a href="https://zalo.me/XXXXXXXXX" target="_blank" class="zalo-btn">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </a>
+</div>
+
+<script>
+// Countdown
+(function(){
+  var end = new Date();
+  end.setDate(end.getDate() + 3);
+  end.setHours(23, 59, 59, 0);
+  function update() {
+    var n = new Date(), d = end - n;
+    if (d <= 0) return;
+    var dd = Math.floor(d / 864e5),
+        hh = Math.floor(d % 864e5 / 36e5),
+        mm = Math.floor(d % 36e5 / 6e4);
+    var a = document.getElementById('cd-d'),
+        b = document.getElementById('cd-h'),
+        c = document.getElementById('cd-m');
+    if (a) a.textContent = String(dd).padStart(2, '0');
+    if (b) b.textContent = String(hh).padStart(2, '0');
+    if (c) c.textContent = String(mm).padStart(2, '0');
+  }
+  update();
+  setInterval(update, 6e4);
+})();
+
+// FAQ toggle
+function toggleFaq(el) {
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+
+// Scroll reveal
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+// Smooth number counter for stats
+(function(){
+  var stats = document.querySelectorAll('.stat b');
+  var animated = false;
+  var io = new IntersectionObserver(function(entries){
+    if (entries[0].isIntersecting && !animated) {
+      animated = true;
+      stats.forEach(function(s){
+        var txt = s.textContent;
+        var num = parseFloat(txt.replace(/[^0-9.]/g,''));
+        var suffix = txt.replace(/[0-9.]/g,'');
+        if (isNaN(num)) return;
+        var start = 0, dur = 1500, step = 16;
+        var timer = setInterval(function(){
+          start += dur / step;
+          var progress = Math.min(start / dur, 1);
+          var ease = 1 - Math.pow(1 - progress, 3);
+          s.textContent = (num > 100 ? Math.round(num * ease).toLocaleString('vi') : (num * ease).toFixed(1).replace('.0','')) + suffix;
+          if (progress >= 1) { s.textContent = txt; clearInterval(timer); }
+        }, step);
+      });
+    }
+  }, {threshold: 0.5});
+  var heroStats = document.querySelector('.hero-stats');
+  if (heroStats) io.observe(heroStats);
+})();
+</script>
+</body>
+</html>

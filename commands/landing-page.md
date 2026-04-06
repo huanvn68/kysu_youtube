@@ -22,7 +22,7 @@ Build a complete, deployable HTML landing page.
 - `warm` - Friendly, approachable
 
 ## Process
-1. Activate Conversion Agent
+1. Activate Deliver Agent
 2. Use Landing Page Builder skill
 3. Select design system (colors, fonts, pattern) from design data
 4. Generate complete HTML with Tailwind CSS
